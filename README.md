@@ -1,2 +1,2 @@
-# AIchip
+# Einstein Chip
 insert brain
