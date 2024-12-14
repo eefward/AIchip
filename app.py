@@ -15,13 +15,15 @@ create_db()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-  data = cur.execute("SELECT name, description FROM downloads")
+  data = cur.execute("SELECT name, description FROM downloads").fetchall()
   if request.method == "POST":
     name = request.form.get("name")
     desc = request.form.get("desc")
+    if not (name and desc): return render_template("Input name and description")
 
     cur.execute("INSERT INTO downloads (name, description) VALUES (?, ?)", (name, desc))
     con.commit()
+    return render_template("index.html", data=data)
   return render_template("index.html", data=data)
 
 if __name__ == '__main__':

@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--https://fontawesome.com/icons-->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einstein Chip</title>
@@ -19,16 +18,39 @@
 
     <select name="people" id="people">
         {% for person in data %}
-            <option> {{ person[0] }} </option>
+            <option class="option" data-description="{{ person[1] }}">{{ person[0] }}</option>
         {% endfor %}
     </select>
     
     <form action="/" method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit" class="button">Search</button>
+        <input type="text" id="name" placeholder="Name" name="name" required>
+        <br>
+        <label for="name">Description:</label>
+        <input type="text" placeholder="Description" name="desc" required>
+        <br>
+        <button type="submit" class="button">Upload</button>
     </form>
     <hr>
+
+    <div id="person-description" style="visibility: hidden;"></div>
+
+    <script>
+        // Get the select element and the description div
+        const peopleSelect = document.getElementById('people');
+        const descriptionDiv = document.getElementById('person-description');
+
+        // Add event listener to the select element
+        peopleSelect.addEventListener('change', function() {
+            const selectedOption = peopleSelect.options[peopleSelect.selectedIndex];
+            const description = selectedOption.getAttribute('data-description');
+            
+            if (description) {
+                descriptionDiv.textContent = description;
+                descriptionDiv.style.visibility = 'visible';
+            }
+        });
+    </script>
         
 </body>
 </html>
