@@ -12,32 +12,44 @@
 
 <body>
 
-    <h1>
-        <span class="white-text">EinsteinChip</span>
-        <i class="fa-solid fa-book"></i>
-    </h1>    
+    <div class="container">
+        <header>
+            <h1>
+                <span class="white-text">EinsteinChip</span>
+                <i class="fa-solid fa-book"></i>
+            </h1>
+        </header>
+        
+        <form action="/" method="POST">
+            <div class="form-section">
+                <label for="people">Choose a person:</label>
+                <select name="people" id="people">
+                    {% for person in data %}
+                        <option class="option" data-description="{{ person[1] }}">{{ person[0] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-    <label for="person">Choose a person:</label>
+            <div class="form-section">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name" name="name" required>
+            </div>
 
-    <select name="people" id="people">
-        {% for person in data %}
-            <option class="option" data-description="{{ person[1] }}">{{ person[0] }}</option>
-        {% endfor %}
-    </select>
-    
-    <form action="/" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Name" name="name" required>
-        <br>
-        <label for="name">Description:</label>
-        <input type="text" placeholder="Description" name="desc" required>
-        <br>
-        <button type="submit" class="button" style="margin-bottom: 30px">Upload</button>
-        <button type="button" class="button">Download Memories</button>
-    </form>
-    <hr>
+            <div class="form-section">
+                <label for="desc">Description:</label>
+                <input type="text" placeholder="Description" name="desc" required>
+            </div>
 
-    <div id="person-description" style="visibility: hidden;"></div>
+            <div class="form-section">
+                <button type="submit" class="button">Upload</button>
+                <button type="button" class="button secondary">Download Memories</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <div id="person-description" class="description" style="visibility: hidden;"></div>
+    </div>
 
     <script>
         const peopleSelect = document.getElementById('people');
@@ -50,6 +62,7 @@
             if (description) {
                 descriptionDiv.textContent = description;
                 descriptionDiv.style.visibility = 'visible';
+                descriptionDiv.classList.add('fade-in');
             }
         });
     </script>

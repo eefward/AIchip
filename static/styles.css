@@ -22,16 +22,15 @@ body {
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Header */
 header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 48px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .white-text {
@@ -41,13 +40,11 @@ header h1 {
 
 /* Form Section */
 .form-section {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-align: center;
+label {
+    font-size: 18px;
     color: #333;
 }
 
@@ -55,10 +52,12 @@ select, input[type="text"] {
     width: 100%;
     padding: 12px;
     font-size: 18px;
-    margin: 12px 0;
+    margin-top: 8px;
+    margin-bottom: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
 select:focus, input[type="text"]:focus {
@@ -69,13 +68,14 @@ select:focus, input[type="text"]:focus {
 button {
     width: 100%;
     padding: 15px;
-    font-size: 20px;
+    font-size: 18px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -84,6 +84,14 @@ button:hover {
 
 button:active {
     background-color: #3e8e41;
+}
+
+button.secondary {
+    background-color: #007BFF;
+}
+
+button.secondary:hover {
+    background-color: #0056b3;
 }
 
 /* Description Box */
@@ -96,10 +104,15 @@ button:active {
     font-size: 16px;
     color: #555;
     border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-/* Footer */
-footer hr {
+.description.fade-in {
+    opacity: 1;
+}
+
+hr {
     margin-top: 40px;
     border: 0;
     border-top: 1px solid #e0e0e0;
