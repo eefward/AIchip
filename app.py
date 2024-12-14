@@ -15,7 +15,7 @@ create_db()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-  data = cur.execute("SELECT * FROM downloads")
+  data = cur.execute("SELECT name, description FROM downloads")
   if request.method == "POST":
     name = request.form.get("name")
     desc = request.form.get("desc")
