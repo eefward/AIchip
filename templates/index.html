@@ -15,14 +15,13 @@
         <span class="white-text">EinsteinChip</span>
     </h1>    
 
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-    </div>
+    <label for="person">Choose a person:</label>
+
+    <select name="people" id="people">
+        {% for person in data %}
+            <option> {{ person[0] }} </option>
+        {% endfor %}
+    </select>
     
     <form action="/" method="POST">
         <label for="name">Name:</label>
