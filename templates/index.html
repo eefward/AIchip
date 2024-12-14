@@ -36,11 +36,9 @@
     <div id="person-description" style="visibility: hidden;"></div>
 
     <script>
-        // Get the select element and the description div
         const peopleSelect = document.getElementById('people');
         const descriptionDiv = document.getElementById('person-description');
 
-        // Add event listener to the select element
         peopleSelect.addEventListener('change', function() {
             const selectedOption = peopleSelect.options[peopleSelect.selectedIndex];
             const description = selectedOption.getAttribute('data-description');
