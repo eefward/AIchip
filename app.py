@@ -23,7 +23,7 @@ def home():
 
     cur.execute("INSERT INTO downloads (name, description) VALUES (?, ?)", (name, desc))
     con.commit()
-    return render_template("index.html", data=data)
+    return redirect("/")
   return render_template("index.html", data=data)
 
 if __name__ == '__main__':
