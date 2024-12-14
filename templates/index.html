@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--https://fontawesome.com/icons-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einstein Chip</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
 
     <h1>
@@ -40,17 +42,18 @@
     <script>
         const peopleSelect = document.getElementById('people');
         const descriptionDiv = document.getElementById('person-description');
-
-        peopleSelect.addEventListener('change', function() {
+      
+        peopleSelect.addEventListener('change', function () {
             const selectedOption = peopleSelect.options[peopleSelect.selectedIndex];
             const description = selectedOption.getAttribute('data-description');
-            
+
             if (description) {
                 descriptionDiv.textContent = description;
                 descriptionDiv.style.visibility = 'visible';
             }
         });
     </script>
-        
+
 </body>
+
 </html>
